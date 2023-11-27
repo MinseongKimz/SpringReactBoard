@@ -39,3 +39,4 @@ out/
 
 .gradletasknamecache
 gradle/wrapper
+package-lock.json
