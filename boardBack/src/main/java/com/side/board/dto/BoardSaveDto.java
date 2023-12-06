@@ -8,11 +8,12 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Getter
-@NoArgsConstructor
 public class BoardSaveDto {
     private String title;
     private String content;
     private LocalDateTime regDate;
+
+
 
     @Builder
     public BoardSaveDto (String title, String content) {
@@ -22,8 +23,9 @@ public class BoardSaveDto {
 
     public Board toEntity() {
         return Board.builder()
-                .title(title)
+                .writer("김민성")
                 .content(content)
+                .title(title)
                 .build();
     }
 
@@ -34,4 +36,6 @@ public class BoardSaveDto {
         this.regDate = board.getRegDate();
     }
 
+    protected BoardSaveDto() {
+    }
 }

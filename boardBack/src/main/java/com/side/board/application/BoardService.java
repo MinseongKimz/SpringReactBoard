@@ -1,7 +1,6 @@
-package com.side.board.appication;
+package com.side.board.application;
 
 import com.side.board.dto.BoardSaveDto;
-import com.side.board.entity.Board;
 
 public interface BoardService {
     BoardSaveDto save(BoardSaveDto boardSaveDto);

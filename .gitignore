@@ -40,3 +40,5 @@ out/
 .gradletasknamecache
 gradle/wrapper
 package-lock.json
+boardBack/gradle/wrapper/gradle-wrapper.jar
+boardBack/gradle/wrapper/gradle-wrapper.properties

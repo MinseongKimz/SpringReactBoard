@@ -23,6 +23,7 @@ public class Board {
 
     private String title;
     private String content;
+    private String writer;
 
     @CreatedDate
     @Column(updatable = false)
@@ -32,8 +33,16 @@ public class Board {
     private LocalDateTime updateDate;
 
     @Builder
+    public Board(String title, String content, String writer) {
+        this.title = title;
+        this.content = content;
+        this.writer = writer;
+    }
+    @Builder
     public Board(String title, String content) {
         this.title = title;
         this.content = content;
     }
+
+
 }
