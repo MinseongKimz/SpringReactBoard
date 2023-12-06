@@ -22,10 +22,8 @@ const Main = () => {
                 <Routes>
                     <Route path="/" element={<BoardList />}></Route>
                     <Route path="/default/BoardList" element={<BoardList />}></Route>
-
                     <Route path="/default/BoardSave" element={<BoardSave />}></Route>
                     <Route path="/default/BoardDetail" element={<BoardDetail />}></Route>
-
                 </Routes>
             </div>
         </main>
