@@ -1,8 +1,7 @@
-package com.side.board.appication.impl;
+package com.side.board.application.impl;
 
-import com.side.board.appication.BoardService;
+import com.side.board.application.BoardService;
 import com.side.board.dto.BoardSaveDto;
-import com.side.board.entity.Board;
 import com.side.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,6 @@ public class BoardServiceImpl implements BoardService {
     @Override
     @Transactional
     public BoardSaveDto save(BoardSaveDto boardSaveDto) {
-        BoardSaveDto resultBoardDto = new BoardSaveDto(boardRepository.save(boardSaveDto.toEntity()));
-        return resultBoardDto;
+        return new BoardSaveDto(boardRepository.save(boardSaveDto.toEntity()));
     }
 }

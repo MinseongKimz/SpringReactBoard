@@ -1,9 +1,8 @@
 package com.side.board.controller;
 
 
-import com.side.board.appication.BoardService;
+import com.side.board.application.BoardService;
 import com.side.board.dto.BoardSaveDto;
-import com.side.board.entity.Board;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
