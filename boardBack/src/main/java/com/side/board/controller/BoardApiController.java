@@ -21,7 +21,7 @@ public class BoardApiController {
     // 글 생성
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/api/v1/board")
-    public Board save(@RequestBody BoardSaveDto boardSaveDto) {
+    public BoardSaveDto save(@RequestBody BoardSaveDto boardSaveDto) {
         return boardService.save(boardSaveDto);
     }
 
