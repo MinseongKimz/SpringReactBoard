@@ -16,7 +16,8 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     @Transactional
-    public Board save(BoardSaveDto boardSaveDto) {
-        return boardRepository.save(boardSaveDto.toEntity());
+    public BoardSaveDto save(BoardSaveDto boardSaveDto) {
+        BoardSaveDto resultBoardDto = new BoardSaveDto(boardRepository.save(boardSaveDto.toEntity()));
+        return resultBoardDto;
     }
 }
