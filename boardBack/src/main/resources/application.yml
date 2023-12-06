@@ -7,18 +7,14 @@ spring:
     password: softtigen
 
   jpa:
-    open-in-view: true
-    show-sql: true
     hibernate:
-      format_sql: true
-      ddl-auto: create
+        ddl-auto: create
+    properties:
+      hibernate:
+#        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
 
 logging:
   level:
-    org:
-      hibernate:
-        SQL: DEBUG
-        type:
-          descriptor:
-            sql:
-              BasicBinder: TRACE
+    org.hibernate.SQL: debug
