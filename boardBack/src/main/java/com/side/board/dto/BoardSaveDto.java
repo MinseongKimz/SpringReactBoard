@@ -3,16 +3,16 @@ package com.side.board.dto;
 import com.side.board.entity.Board;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Getter
 public class BoardSaveDto {
+
     private String title;
     private String content;
-    private LocalDateTime regDate;
 
+    private LocalDateTime regDate;
 
 
     @Builder
