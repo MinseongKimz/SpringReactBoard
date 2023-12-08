@@ -38,14 +38,14 @@ const BoardSave = () => {
         var id = document.getElementById("account_id");
         id = id.value.trim();
         if (id === null || id === "") {
-            alert("id 를 입력하세요.");
+            alert("제목을 입력하세요.");
             return false;
         }
 
         var pw = document.getElementById("account_pw");
         pw = pw.value.trim();
         if (pw === null || pw === "") {
-            alert("pw 를 입력하세요.");
+            alert("내용을 입력하세요.");
             return false;
         }
 
