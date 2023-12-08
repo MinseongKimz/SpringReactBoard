@@ -6,8 +6,8 @@
       ③ 게시물 상세 조회
       ④ 페이징
 */
-import React from "react";
-import BoardDetail from "./BoardDetail";
+import React, { useEffect, useState } from 'react';
+import BoardList_Item from "./BoardList_Item";
 import styles from "../../components/cssComponents/default/BoardList.module.css";
 import axios from "axios";
 
@@ -24,7 +24,29 @@ function onclickHref (url, e)
 
 const BoardList = () => {
 
+    const [data, setData] = useState('');
+    const item = ["제목입니다.", "제목입니다2"];
+    useEffect(() => {
+        let searchParams = {
+            title : ""
+            , content : ""
 
+        };
+         axios.post("http://localhost:8080/api/v1/board", JSON.stringify(searchParams),
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then((res) => {
+                //setData(res.data);
+                console.log(res);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
     return(
         <div>
             {/* 검색 영역 */}
@@ -107,46 +129,8 @@ const BoardList = () => {
 
             {/* 썸네일 영역 */}
             <div className={styles.index_recipe_wrap}>
-                <div className={styles.index_recipe_contents}>
-                    <table className={styles.index_recipe_tbl}>
-                        <thead>
-                        <tr>
-                            <th colSpan={3} className={styles.index_board_th_num}>
-                                게시판
-                                <hr/>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th className={styles.index_board_td_num}>
-                                번호
-                                <hr/>
-                            </th>
-                            <th className={styles.index_board_td_title}>
-                                제목
-                                <hr/>
-                            </th>
-                            <th className={styles.index_board_td_date}>
-                                작성일
-                                <hr/>
-                            </th>
-                        </tr>
-
-                        <tr>
-                            <th className={styles.index_board_td_num}>
-                                1
-                            </th>
-                            <th className={styles.index_board_td_title}>
-                                제목입니다.
-                            </th>
-                            <th className={styles.index_board_td_date}>
-                                2023.12.06 12:00:41
-                            </th>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                {/* 이 부분을 컴포넌트로 구현해본다. */}
+                <BoardList_Item item={item}></BoardList_Item>
             </div>
 
         </div>
