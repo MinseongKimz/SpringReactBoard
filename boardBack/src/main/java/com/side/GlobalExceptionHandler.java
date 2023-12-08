@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ErrorResponse> handleRuntimeException(final CustomException e) {
-        log.error("handleCustomException : {}", e.getMessage());
+        log.error("handleCustomException : ", e);
         return ResponseEntity
                 .status(e.getErrorCode().getStatus().value())
                 .body(new ErrorResponse(e.getErrorCode()));
@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     protected ResponseEntity<ErrorResponse> handleHttpRequestMethodNotSupportedException(final HttpRequestMethodNotSupportedException e) {
-        log.error("handleHttpRequestMethodNotSupportedException: {}", e.getMessage());
+        log.error("handleHttpRequestMethodNotSupportedException: ", e);
         return ResponseEntity
                 .status(ErrorCode.METHOD_NOT_ALLOWED.getStatus().value())
                 .body(new ErrorResponse(ErrorCode.METHOD_NOT_ALLOWED));
@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<ErrorResponse> handleException(final Exception e) {
-        log.error("handleException: {}", e.getMessage());
+        log.error("handleException: ", e);
         return ResponseEntity
                 .status(ErrorCode.INTERNAL_SERVER_ERROR.getStatus().value())
                 .body(new ErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR));
