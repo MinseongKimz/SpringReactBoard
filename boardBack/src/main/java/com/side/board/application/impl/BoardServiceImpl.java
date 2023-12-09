@@ -13,6 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 @Slf4j
@@ -36,5 +39,24 @@ public class BoardServiceImpl implements BoardService {
             log.warn("error : ", e);
             throw new CustomException(ErrorCode.POSTS_NOT_FOUND);
         }
+    }
+
+    @Override
+    public void delete(Long id) {
+        try {
+            boardRepository.deleteById(id);
+        } catch (Exception e) {
+            log.warn("error : ", e);
+            throw new CustomException(ErrorCode.POSTS_NOT_FOUND);
+        }
+    }
+
+    @Override
+    public List<BoardResponseDto> getBoards() {
+        List<Board> boards = boardRepository.findAll();
+
+        return boards.stream()
+                .map(BoardResponseDto::new)
+                .toList();
     }
 }

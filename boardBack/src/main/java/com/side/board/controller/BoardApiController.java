@@ -41,6 +41,7 @@ public class BoardApiController {
     // 글 삭제
     @DeleteMapping("/api/v1/board/{id}")
     public BoardSaveDto deleteBoard(@PathVariable Long id) {
+        boardService.delete(id);
         return null;
     }
 
@@ -53,8 +54,8 @@ public class BoardApiController {
 
     // 글 리스트 조회
     @GetMapping("/api/v1/boards")
-    public List<BoardSaveDto> getBoards() {
-        return null;
+    public List<BoardResponseDto> getBoards() {
+        return boardService.getBoards();
     }
 
 }
