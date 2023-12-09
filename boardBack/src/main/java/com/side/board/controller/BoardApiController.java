@@ -31,9 +31,11 @@ public class BoardApiController {
 
     // 글 조회 GET
     @GetMapping("/api/v1/board/{id}")
-    public BoardSaveDto getBoard(@PathVariable Long id) {
+    public BoardResponseDto getBoard(@PathVariable Long id) {
+        if (id==null)
+            throw new CustomException(ErrorCode.BAD_REQUEST);
 
-        return null;
+        return boardService.getBoard(id);
     }
 
     // 글 삭제

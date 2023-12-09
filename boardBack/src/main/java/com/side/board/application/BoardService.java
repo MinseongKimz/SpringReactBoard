@@ -6,4 +6,5 @@ import com.side.board.dto.BoardSaveDto;
 
 public interface BoardService {
     BoardResponseDto save(BoardRequestDto boardRequestDto);
+    BoardResponseDto getBoard(Long id);
 }
