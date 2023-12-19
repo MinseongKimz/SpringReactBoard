@@ -2,15 +2,15 @@ package com.side.board.application;
 
 import com.side.board.dto.BoardRequestDto;
 import com.side.board.dto.BoardResponseDto;
-import com.side.board.dto.BoardSaveDto;
-
-import java.util.List;
+import com.side.board.dto.ResponseDto;
 
 public interface BoardService {
-    BoardResponseDto save(BoardRequestDto boardRequestDto);
-    BoardResponseDto getBoard(Long id);
+    ResponseDto<Object> save(BoardRequestDto boardRequestDto);
+    ResponseDto<Object> getBoard(Long id);
 
-    void delete(Long id);
+    ResponseDto<Object> delete(Long id);
 
-    List<BoardResponseDto> getBoards();
+    ResponseDto<Object> getBoards();
+
+    ResponseDto<Object> update(Long id, BoardRequestDto boardRequestDto);
 }

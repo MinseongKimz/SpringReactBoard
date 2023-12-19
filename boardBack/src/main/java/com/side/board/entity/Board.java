@@ -44,4 +44,10 @@ public class Board {
         this.regDate = regDate;
         this.updateDate = updateDate;
     }
+
+    public void update(String title, String content, LocalDateTime updateDate) {
+        this.title = title;
+        this.content = content;
+        this.updateDate = updateDate;
+    }
 }
